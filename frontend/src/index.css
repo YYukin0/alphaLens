@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .filing-section-content table,
+  .filing-cover-content table,
+  .filing-table {
+    @apply w-full border-collapse my-4 text-sm;
+  }
+
+  .filing-section-content th,
+  .filing-section-content td,
+  .filing-cover-content th,
+  .filing-cover-content td,
+  .filing-table th,
+  .filing-table td {
+    @apply border border-border px-3 py-2 align-top;
+  }
+
+  .filing-section-content th,
+  .filing-cover-content th,
+  .filing-table th {
+    @apply bg-secondary/60 font-semibold text-left;
+  }
+
+  .filing-section-content p,
+  .filing-cover-content p {
+    @apply mb-3;
+  }
+
+  .filing-search-hit {
+    @apply bg-yellow-500/30 text-foreground rounded px-0.5;
+  }
+
+  .filing-search-hit-active {
+    @apply bg-primary/40 ring-1 ring-primary;
+  }
+}

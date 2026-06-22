@@ -1,0 +1,41 @@
+{
+  "directory": {
+    "item": [
+      {
+        "last-modified": "2024-10-30 16:30:00",
+        "name": "goog-20240930.htm",
+        "type": "10-Q",
+        "size": "2456789",
+        "description": "10-Q"
+      },
+      {
+        "last-modified": "2024-10-30 16:30:00",
+        "name": "goog-20240930.xml",
+        "type": "XML",
+        "size": "987654",
+        "description": "EXTRACTED XBRL INSTANCE DOCUMENT"
+      },
+      {
+        "last-modified": "2024-10-30 16:30:00",
+        "name": "goog-20240930_cal.xml",
+        "type": "XML",
+        "size": "65432",
+        "description": "XBRL TAXONOMY EXTENSION CALCULATION LINKBASE DOCUMENT"
+      },
+      {
+        "last-modified": "2024-10-30 16:30:00",
+        "name": "goog-20240930_htm.xml",
+        "type": "XML",
+        "size": "123456",
+        "description": "EXTRACTED XBRL INSTANCE DOCUMENT"
+      },
+      {
+        "last-modified": "2024-10-30 16:30:00",
+        "name": "exhibit991.htm",
+        "type": "EX-99.1",
+        "size": "120000",
+        "description": "EXHIBIT 99.1"
+      }
+    ]
+  }
+}
