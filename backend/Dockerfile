@@ -5,10 +5,9 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
+ENV APP_ENV=production
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    libpq-dev \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
@@ -22,4 +21,8 @@ RUN chmod +x /app/scripts/entrypoint.sh
 
 EXPOSE 8000
 
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+    CMD curl -fsS "http://127.0.0.1:${PORT:-8000}/api/v1/health" || exit 1
+
 ENTRYPOINT ["/app/scripts/entrypoint.sh"]
+CMD ["api"]
