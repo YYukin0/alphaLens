@@ -13,7 +13,7 @@ FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 @pytest.fixture
 def sec_service():
-    return SECService(Settings(sec_user_agent="AlphaLens Test contact@test.local"))
+    return SECService(Settings(sec_user_agent="DeepEquity Test contact@test.local"))
 
 
 @pytest.fixture

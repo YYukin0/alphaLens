@@ -1,1 +1,1 @@
-"""AlphaLens backend application."""
+"""DeepEquity backend application."""

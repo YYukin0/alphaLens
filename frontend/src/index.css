@@ -35,6 +35,49 @@
 }
 
 @layer components {
+  .filing-section-content,
+  .filing-cover-content {
+    @apply text-[15px] leading-[1.75] text-foreground/90;
+    font-family: "Georgia", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  }
+
+  .filing-section-content h1,
+  .filing-section-content h2,
+  .filing-section-content h3,
+  .filing-cover-content h1,
+  .filing-cover-content h2 {
+    @apply font-sans font-semibold tracking-tight text-foreground mt-6 mb-3;
+  }
+
+  .filing-section-content h1 { @apply text-xl; }
+  .filing-section-content h2 { @apply text-lg; }
+  .filing-section-content h3 { @apply text-base; }
+
+  .filing-section-content ul,
+  .filing-section-content ol {
+    @apply my-4 ml-6 space-y-2;
+  }
+
+  .filing-section-content li {
+    @apply pl-1;
+  }
+
+  .filing-section-article.filing-section-risk {
+    @apply shadow-[inset_3px_0_0_0_rgba(251,191,36,0.5)];
+  }
+
+  .filing-section-article.filing-section-mda {
+    @apply shadow-[inset_3px_0_0_0_rgba(96,165,250,0.5)];
+  }
+
+  .filing-section-article.filing-section-financials {
+    @apply shadow-[inset_3px_0_0_0_rgba(52,211,153,0.5)];
+  }
+
+  .filing-section-article.filing-section-earnings {
+    @apply shadow-[inset_3px_0_0_0_rgba(167,139,250,0.5)];
+  }
+
   .filing-section-content table,
   .filing-cover-content table,
   .filing-table {

@@ -3,11 +3,15 @@ from sqlalchemy.orm import Session
 
 from app.config import Settings, get_settings
 from app.database import get_db
+from app.services.company_profile_service import CompanyProfileService
 from app.services.company_service import CompanyService
 from app.services.event_service import EventService
+from app.services.filing_analysis_service import FilingAnalysisService
 from app.services.filing_service import FilingService
+from app.services.financial_data_service import FinancialDataService
 from app.services.market_data_service import MarketDataService
 from app.services.openai_event_extractor import OpenAIEventExtractor
+from app.services.openai_filing_analyzer import OpenAIFilingAnalyzer
 from app.services.price_service import PriceService
 from app.services.sec_service import SECService
 
@@ -55,3 +59,26 @@ def get_price_service(
     company_service: CompanyService = Depends(get_company_service),
 ) -> PriceService:
     return PriceService(db, market_data_service, company_service)
+
+
+def get_openai_filing_analyzer(settings: Settings = Depends(get_settings)) -> OpenAIFilingAnalyzer:
+    return OpenAIFilingAnalyzer(settings)
+
+
+def get_filing_analysis_service(
+    db: Session = Depends(get_db),
+    analyzer: OpenAIFilingAnalyzer = Depends(get_openai_filing_analyzer),
+    settings: Settings = Depends(get_settings),
+) -> FilingAnalysisService:
+    return FilingAnalysisService(db, analyzer, settings)
+
+
+def get_financial_data_service() -> FinancialDataService:
+    return FinancialDataService()
+
+
+def get_company_profile_service(
+    db: Session = Depends(get_db),
+    company_service: CompanyService = Depends(get_company_service),
+) -> CompanyProfileService:
+    return CompanyProfileService(db, company_service)

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FilingReaderView } from "@/components/FilingReader";
+import { FilingAnalysisPanel } from "@/components/FilingAnalysisPanel";
 import { SecFilingLink } from "@/components/SecFilingLink";
 
 export default function FilingDetailPage() {
@@ -82,9 +83,9 @@ export default function FilingDetailPage() {
             <SecFilingLink filing={filing} label="View on SEC" className="text-sm" />
           </div>
         </CardHeader>
-        <CardContent className="pt-6">
+        <CardContent className="pt-6 space-y-8">
           {filing.reader && filing.reader.sections.length > 0 ? (
-            <FilingReaderView reader={filing.reader} />
+            <FilingReaderView reader={filing.reader} filingType={filing.filing_type} />
           ) : filing.extracted_text || filing.raw_content ? (
             <div className="rounded-lg border border-border bg-secondary/20 p-6">
               <p className="text-sm text-muted-foreground mb-4">
@@ -99,6 +100,7 @@ export default function FilingDetailPage() {
               No content available. The filing may not have been fully synced.
             </p>
           )}
+          <FilingAnalysisPanel filingId={filing.id} />
         </CardContent>
       </Card>
     </div>

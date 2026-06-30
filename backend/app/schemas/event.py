@@ -16,7 +16,9 @@ class EventType(str, Enum):
     MAJOR_CONTRACT = "Major Contract"
     CAPEX_INCREASE = "Capital Expenditure Increase"
     REGULATORY_INVESTIGATION = "Regulatory Investigation"
-    PRODUCT_LAUNCH = "Product Launch"
+    GUIDANCE_CHANGE = "Guidance Change"
+    EARNINGS_RELEASE = "Earnings Release"
+    CAPITAL_RAISE = "Capital Raise"
 
 
 class Sentiment(str, Enum):

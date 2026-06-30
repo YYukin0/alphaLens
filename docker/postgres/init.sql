@@ -1,2 +1,1 @@
--- AlphaLens PostgreSQL initialization
--- Phase 1 schema is created by Alembic migrations on backend startup.
+-- DeepEquity PostgreSQL initialization

@@ -1,8 +1,8 @@
-# AlphaLens
+# DeepEquity
 
-AI-powered equity research platform for ingesting SEC filings and market data, with a research dashboard and structured filing reader.
+**DeepEquity** is an AI-powered equity research platform — not a filing viewer. The long-term goal is to become an AI research analyst that replaces much of the manual work performed by junior equity research and investment banking analysts.
 
-AlphaLens pulls 8-K, 10-Q, and 10-K filings from EDGAR, extracts readable narrative text, parses filings into navigable sections with preserved financial tables, and stores OHLCV price history from Yahoo Finance.
+DeepEquity ingests SEC filings and market data, parses filings into structured research views, extracts corporate events, and will evolve into a full AI research agent with cited SEC evidence.
 
 ---
 
@@ -18,11 +18,13 @@ AlphaLens pulls 8-K, 10-Q, and 10-K filings from EDGAR, extracts readable narrat
 ### Filing reader
 
 - Structured sections by Item (10-K, 10-Q, 8-K) and Part (10-Q/10-K)
-- Sticky section navigation with scroll-to-section and active highlighting
-- SEC cover page collapsed by default (`Show Cover Page` toggle)
-- Financial tables preserved as HTML (not flattened to plain text)
+- Sticky table of contents with Part grouping and key-section highlights
+- Reading progress indicator and expand/collapse all
+- SEC cover page collapsed by default
+- Financial tables preserved as HTML
 - In-filing keyword search with match highlighting and prev/next navigation
-- Collapsible sections
+- Collapsible sections with improved typography and mobile bottom-sheet navigation
+- Visual emphasis on Risk Factors, MD&A, Financial Statements, and earnings items
 
 ### Market data
 
@@ -38,7 +40,7 @@ AlphaLens pulls 8-K, 10-Q, and 10-K filings from EDGAR, extracts readable narrat
 ## Architecture
 
 ```
-AlphaLens/
+DeepEquity/
 ├── backend/          # FastAPI, SQLAlchemy, Alembic, Celery
 ├── frontend/         # React, Vite, TailwindCSS, Recharts
 ├── docker/           # PostgreSQL init scripts
@@ -94,7 +96,7 @@ First run takes about 1–2 minutes while migrations run and containers become h
 | Dashboard | http://localhost:5173 |
 | API docs (Swagger) | http://localhost:8000/docs |
 | Health check | http://localhost:8000/api/v1/health |
-| PostgreSQL | `localhost:5432` — user `alphalens`, password `alphalens`, db `alphalens` |
+| PostgreSQL | `localhost:5432` — user `deepequity`, password `deepequity`, db `deepequity` |
 
 ### Stop
 
@@ -274,9 +276,9 @@ Migrations run automatically on backend startup (`alembic upgrade head`).
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DATABASE_URL` | `postgresql://alphalens:alphalens@postgres:5432/alphalens` | PostgreSQL connection |
+| `DATABASE_URL` | `postgresql://deepequity:deepequity@postgres:5432/deepequity` | PostgreSQL connection |
 | `REDIS_URL` | `redis://redis:6379/0` | Celery broker |
-| `SEC_USER_AGENT` | `AlphaLens Research Platform contact@alphalens.local` | Required by SEC EDGAR — **set a real contact email for production** |
+| `SEC_USER_AGENT` | `DeepEquity Research Platform contact@deepequity.local` | Required by SEC EDGAR — **set a real contact email for production** |
 | `OPENAI_API_KEY` | — | Enables LLM event extraction |
 | `OPENAI_MODEL` | `gpt-4o-mini` | Model for event extraction |
 | `AUTO_EXTRACT_EVENTS` | `true` | Queue event extraction after filing sync |
@@ -292,10 +294,13 @@ Copy `.env.example` to `.env` in the project root for Docker Compose overrides.
 |-------|--------|-------|
 | **Phase 1** | Done | SEC sync, Yahoo prices, dashboard |
 | **Phase 2** | Done | Historical filing sync, XBRL-safe extraction, LLM event extraction |
-| **Phase 3** | Done | Structured filing reader, section nav, table preservation, in-filing search |
-| Phase 4 | Planned | Form 4, 13F, earnings transcripts |
-| Phase 5 | Planned | Event-driven backtesting |
-| Phase 6 | Planned | Research assistant (natural-language interface) |
+| **Phase 3** | Done | Structured filing reader, TOC, search, mobile support |
+| Phase 4 | Planned | Financial data layer (statements, ratios, metrics) |
+| Phase 5 | Planned | Event intelligence (guidance, M&A, buybacks, layoffs) |
+| Phase 6 | Planned | AI research agent with filing citations |
+| Phase 7 | Planned | Research workspace (watchlists, timelines, notes) |
+| Phase 8 | Planned | Institutional research report generation (PDF) |
+| Phase 9 | Planned | Agentic workflow — autonomous research assistant |
 
 ---
 

@@ -99,6 +99,45 @@ export interface HistoricalSyncResponse {
   message: string;
 }
 
+export interface CompanyProfile {
+  ticker: string;
+  company_name: string;
+  cik: string;
+  in_database: boolean;
+  filing_count: number;
+  event_count: number;
+  latest_filing_date: string | null;
+  latest_filing_type: string | null;
+  counts_by_type: Record<string, number>;
+}
+
+export interface FinancialStatementTable {
+  statement_type: string;
+  columns: string[];
+  rows: Record<string, string | null>[];
+}
+
+export interface CompanyFinancials {
+  ticker: string;
+  currency: string | null;
+  statements: FinancialStatementTable[];
+}
+
+export interface FilingAnalysis {
+  id: number;
+  filing_id: number;
+  analysis_type: string;
+  content: string;
+  model: string | null;
+  created_at: string;
+}
+
+export interface FilingAnalysisBatch {
+  filing_id: number;
+  analyses: FilingAnalysis[];
+  message: string;
+}
+
 export function formatApiError(detail: unknown): string {
   if (typeof detail === "string") {
     return detail;
@@ -174,4 +213,29 @@ export const api = {
 
   listPrices: (ticker: string) =>
     request<Price[]>(`/prices/${encodeURIComponent(ticker)}`),
+
+  getCompanyProfile: (ticker: string) =>
+    request<CompanyProfile>(`/companies/${encodeURIComponent(ticker)}/profile`),
+
+  getCompanyFinancials: (ticker: string) =>
+    request<CompanyFinancials>(`/companies/${encodeURIComponent(ticker)}/financials`),
+
+  getCompanyMetrics: (ticker: string) =>
+    request<Record<string, number | string>>(`/companies/${encodeURIComponent(ticker)}/metrics`),
+
+  listFilingAnalyses: (filingId: number) =>
+    request<FilingAnalysis[]>(`/filings/detail/${filingId}/analysis`),
+
+  analyzeFiling: (filingId: number, types?: string[], force = false) => {
+    const params = new URLSearchParams();
+    for (const type of types || ["summary", "risks", "kpis", "mda"]) {
+      params.append("types", type);
+    }
+    if (force) {
+      params.set("force", "true");
+    }
+    return request<FilingAnalysisBatch>(`/filings/detail/${filingId}/analyze?${params.toString()}`, {
+      method: "POST",
+    });
+  },
 };

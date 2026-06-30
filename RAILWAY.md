@@ -1,6 +1,6 @@
-# AlphaLens Railway Deployment
+# DeepEquity Railway Deployment
 
-Deploy AlphaLens as **five Railway services** from one GitHub repo using **Docker** (not Nixpacks at repo root).
+Deploy DeepEquity as **five Railway services** from one GitHub repo using **Docker** (not Nixpacks at repo root).
 
 ## Why the build was failing
 
@@ -49,7 +49,7 @@ Railway was building the **repository root**, which has no `package.json` or Pyt
 | `DATABASE_URL` | `${{Postgres.DATABASE_URL}}` |
 | `REDIS_URL` | `${{Redis.REDIS_URL}}` |
 | `APP_ENV` | `production` |
-| `SEC_USER_AGENT` | `AlphaLens contact@YOUR_EMAIL.com` |
+| `SEC_USER_AGENT` | `DeepEquity contact@YOUR_EMAIL.com` |
 | `CORS_ORIGINS` | `https://${{frontend.RAILWAY_PUBLIC_DOMAIN}}` |
 | `OPENAI_API_KEY` | *(optional)* your OpenAI key |
 | `OPENAI_MODEL` | `gpt-4o-mini` |

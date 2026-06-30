@@ -7,14 +7,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
-    app_name: str = "AlphaLens"
-    app_version: str = "0.1.0"
+    app_name: str = "DeepEquity"
+    app_version: str = "0.2.0"
     debug: bool = False
 
     database_url: str = "postgresql://alphalens:alphalens@postgres:5432/alphalens"
     redis_url: str = "redis://redis:6379/0"
 
-    sec_user_agent: str = "AlphaLens Research Platform contact@alphalens.local"
+    sec_user_agent: str = "DeepEquity Research Platform contact@deepequity.local"
     sec_base_url: str = "https://data.sec.gov"
     sec_edgar_search_url: str = "https://www.sec.gov/cgi-bin/browse-edgar"
 

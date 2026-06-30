@@ -22,7 +22,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.app_name,
         version=settings.app_version,
-        description="AI-powered equity research platform - Phase 1 MVP",
+        description="DeepEquity — AI-powered equity research platform",
         lifespan=lifespan,
     )
 

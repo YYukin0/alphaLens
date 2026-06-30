@@ -18,8 +18,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Link to="/" className="flex items-center gap-2">
             <BarChart3 className="h-7 w-7 text-primary" />
             <div>
-              <h1 className="text-xl font-bold tracking-tight">AlphaLens</h1>
-              <p className="text-xs text-muted-foreground">Equity Research Platform</p>
+              <h1 className="text-xl font-bold tracking-tight">DeepEquity</h1>
+              <p className="text-xs text-muted-foreground">AI Equity Research</p>
             </div>
           </Link>
           <nav className="flex items-center gap-1">

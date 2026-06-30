@@ -14,6 +14,6 @@ restartPolicyMaxRetries = 10
 # DATABASE_URL=${{Postgres.DATABASE_URL}}
 # REDIS_URL=${{Redis.REDIS_URL}}
 # APP_ENV=production
-# SEC_USER_AGENT=AlphaLens contact@your-email.com
+# SEC_USER_AGENT=DeepEquity contact@your-email.com
 # CORS_ORIGINS=https://your-frontend.up.railway.app
 # OPENAI_API_KEY=(optional)

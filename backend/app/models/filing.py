@@ -24,3 +24,6 @@ class Filing(Base):
 
     company: Mapped["Company"] = relationship(back_populates="filings")
     events: Mapped[list["Event"]] = relationship(back_populates="filing", cascade="all, delete-orphan")
+    analyses: Mapped[list["FilingAnalysis"]] = relationship(
+        back_populates="filing", cascade="all, delete-orphan"
+    )

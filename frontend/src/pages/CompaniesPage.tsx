@@ -112,6 +112,9 @@ export default function CompaniesPage() {
                     {syncing ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                     Sync Data
                   </Button>
+                  <Button variant="outline" onClick={() => navigate(`/companies/${company.ticker}`)}>
+                    Profile
+                  </Button>
                   <Button variant="outline" onClick={() => navigate(`/filings?ticker=${company.ticker}`)}>
                     View Filings
                   </Button>

@@ -10,7 +10,7 @@ from app.config import Settings
 @pytest.fixture
 def settings():
     return Settings(
-        sec_user_agent="AlphaLens Test contact@test.local",
+        sec_user_agent="DeepEquity Test contact@test.local",
         filing_types=["8-K", "10-Q", "10-K"],
         max_filings_per_sync=10,
     )
