@@ -32,9 +32,24 @@
     @apply bg-background text-foreground antialiased;
     font-family: "Inter", system-ui, -apple-system, sans-serif;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {
+  .landing-page {
+    color: white;
+  }
+
+  .landing-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
   .filing-section-content,
   .filing-cover-content {
     @apply text-[15px] leading-[1.75] text-foreground/90;

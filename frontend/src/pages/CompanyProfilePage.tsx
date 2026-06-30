@@ -65,7 +65,7 @@ export default function CompanyProfilePage() {
       <div className="text-center py-20 space-y-4">
         <p className="text-destructive">{error || "Company not found"}</p>
         <Button asChild variant="outline">
-          <Link to="/">Back to Companies</Link>
+          <Link to="/companies">Back to Companies</Link>
         </Button>
       </div>
     );
@@ -76,7 +76,7 @@ export default function CompanyProfilePage() {
   return (
     <div className="space-y-6">
       <Button asChild variant="ghost" size="sm">
-        <Link to="/">
+        <Link to="/companies">
           <ArrowLeft className="h-4 w-4" />
           Back to Companies
         </Link>
